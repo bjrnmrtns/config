@@ -1,0 +1,14 @@
+# Making a bootable usb-stick from MacOS
+1. Download iso e.g. Windows 10 Pro 
+2. Insert usb stick
+3. Run: diskutil list
+4. Look for the correct drive of the USB stick, e.g. /dev/disk3 (be carefull, you don't want to overwrite the MacOS partition)
+5. diskutil eraseDisk MS-DOS "WIN10" GPT /dev/disk3
+6. if step 5 fails Run: diskutil eraseDisk MS-DOS "WIN10" MBR /dev/disk3
+7. hdiutil mount ~/Downloads/win10.iso
+8. rsync -vha --exclude=sources/install.wim /Volumes/CCCOMA_X64FRE_EN-US_DV9 /Volumes/WIN10
+9. brew install wimlib
+10. mkdir /Volumes/WIN10/sources
+11. wimlib-imagex split /Volumes/CCCOMA_X64FRE_EN-US_DV9/sources/install.wim /Volumes/WIN10/sources/install.swm 4000
+12. eject
+13. Insert in other machine to install windows.
