@@ -54,7 +54,28 @@ Add the lines:
 ```
 boot.loader.gub.device = "/dev/sda";
 -- Installation
+Add git/neovim/wget/firefox as system packages to configuration.nix
+```
+environment.systemPackage = with pkgs; [
+  neovim
+  git
+  wget
+  firefox
+];
+```
 ```
 sudo nixos-install
 sudo reboot
 ```
+
+-- Add user
+```
+useradd -c "<first-name last-name>" -m "<username>"
+passwd "<username>"
+su <username>
+ssh-keygen -t ed25519 -C "<email>"
+```
+- add key to github
+
+## Rebuilding the adapted configuration and take effect after reboot
+nixos-rebuild boot
