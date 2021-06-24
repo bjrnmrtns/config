@@ -6,9 +6,16 @@
 5. diskutil eraseDisk MS-DOS "WIN10" GPT /dev/disk3
 6. if step 5 fails Run: diskutil eraseDisk MS-DOS "WIN10" MBR /dev/disk3
 7. hdiutil mount ~/Downloads/win10.iso
-8. rsync -vha --exclude=sources/install.wim /Volumes/CCCOMA_X64FRE_EN-US_DV9 /Volumes/WIN10
+8. rsync -vha --exclude=sources/install.wim /Volumes/CCCOMA_X64FRE_EN-US_DV9/ /Volumes/WIN10
 9. brew install wimlib
 10. mkdir /Volumes/WIN10/sources
 11. wimlib-imagex split /Volumes/CCCOMA_X64FRE_EN-US_DV9/sources/install.wim /Volumes/WIN10/sources/install.swm 4000
-12. eject
-13. Insert in other machine to install windows.
+12. eject stick
+13. Insert in other machine.
+14. Boot from partition 2, to install windows.
+15. At the start of installation press shift F10
+16. Run: diskpart
+17. Run: list disk
+18. Run: select disk 0 // look for the correct disk
+19. convert gpt
+20. Start windows installation
