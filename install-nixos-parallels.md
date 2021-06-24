@@ -76,6 +76,15 @@ su <username>
 ssh-keygen -t ed25519 -C "<email>"
 ```
 - add key to github
+- add <user-name> to sudoers file
+
+## Get configuration.nix from github
+```
+mkdir ~/projects
+git clone git@github.com:bjrnmrtns/system-installation.git
+sudo rm -rf /etc/nixos/
+sudo ln -s ~/projects/system-installation/nixos/hosts/ironside/ /etc/nixos
+```
 
 ## Rebuilding the adapted configuration and take effect after reboot
 nixos-rebuild boot
