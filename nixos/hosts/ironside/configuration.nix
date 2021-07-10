@@ -93,6 +93,12 @@
     git
     wget
     firefox
+    htop
+    ethtool
+    tcpdump
+    conntrack-tools
+    timescaledb
+    qemu
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
