@@ -86,5 +86,11 @@ sudo rm -rf /etc/nixos/
 sudo ln -s ~/projects/system-installation/nixos/hosts/ironside/ /etc/nixos
 ```
 
+## add home-manager
+```
+nix-channel --add https://github.com/nix-community/home-manager/archive/release-21.05.tar.gz home-manager
+nix-channel --update
+```
+
 ## Rebuilding the adapted configuration and take effect after reboot
 nixos-rebuild boot

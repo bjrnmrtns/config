@@ -1,10 +1,8 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
+  programs.home-manager.enable = true;
+
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -84,7 +82,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    alacritty
     git
+    nedit
     wget
     firefox
     htop
@@ -92,8 +92,10 @@
     tcpdump
     conntrack-tools
     timescaledb
+    nftables
     qemu
-    tmux
+    ispell
+    home-manager
   ];
 
   environment.variables.EDITOR = "nvim";
@@ -104,7 +106,19 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.bjorn = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    createHome = true;
+    home = "/home/bjorn";
+    extraGroups = [ "networkmanager" "wheel" ]; # Enable ‘sudo’ for the user.
+    shell = pkgs.zsh;
+  };
+
+  programs.tmux = {
+    enable = true;
+    terminal = "tmux-256color";
+  };
+
+  programs.zsh = {
+    enable = true;
   };
 
 
