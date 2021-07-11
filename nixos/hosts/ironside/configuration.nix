@@ -26,6 +26,7 @@
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
 
+
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
@@ -80,16 +81,9 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  # users.users.jane = {
-  #   isNormalUser = true;
-  #   extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-  # };
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    neovim
     git
     wget
     firefox
@@ -99,7 +93,21 @@
     conntrack-tools
     timescaledb
     qemu
+    tmux
   ];
+
+  environment.variables.EDITOR = "nvim";
+
+  programs.neovim.enable = true;
+  programs.neovim.viAlias = true;
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.bjorn = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+  };
+
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
