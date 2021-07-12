@@ -1,10 +1,18 @@
 { config, pkgs, lib, ... }:
 
+let home-manager = builtins.fetchGit
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  url = "https://github.com/nix-community/home-manager.git";
+  rev = "35a24648d155843a4d162de98c17b1afd5db51e4";
+  ref = "release-21.05";
+};
+in
+{
+  imports = [
+    ./hardware-configuration.nix
+    (import "${home-manager}/nixos")
+    ./settings.nix
+  ];
 
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
@@ -19,7 +27,6 @@
   networking.hostName = "ironside"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
 
 
@@ -81,7 +88,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     alacritty
-    git
     nedit
     wget
     firefox
@@ -94,6 +100,7 @@
     qemu
     ispell
     home-manager
+    git
   ];
 
   environment.variables.EDITOR = "nvim";
@@ -101,11 +108,19 @@
   programs.neovim.enable = true;
   programs.neovim.viAlias = true;
 
+  xdg.configFile."nvim" = {
+    source = ../../../../dotfiles/config/nvim;
+    recursive = true;
+  };
+
+  security.sudo.wheelNeedsPassword = false;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.bjorn = {
+  users.users.${config.settings.username} = {
     isNormalUser = true;
     createHome = true;
-    home = "/home/bjorn";
+    home = "/home/${config.settings.username}";
+    description = "${config.settings.name}";
     extraGroups = [ "networkmanager" "wheel" ]; # Enable ‘sudo’ for the user.
     shell = pkgs.zsh;
   };
