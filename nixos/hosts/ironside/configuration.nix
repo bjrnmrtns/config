@@ -1,8 +1,6 @@
 { config, pkgs, lib, ... }:
 
 {
-  programs.home-manager.enable = true;
-
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
