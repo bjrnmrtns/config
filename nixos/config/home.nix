@@ -8,6 +8,7 @@ with pkgs.lib;
 
   nixpkgs.config = import ./nixpkgs.nix;
   xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs.nix;
+  xdg.configFile."nvim/init.vim".source = ./nvim/init.vim;
 
   home.packages = with pkgs; [
     alacritty
@@ -15,8 +16,10 @@ with pkgs.lib;
     nedit
   ];
 
-  programs.neovim.enable = true;
-  programs.neovim.viAlias = true;
+  programs.neovim = {
+    enable = true;
+    viAlias = true;
+  };
   
   programs.tmux = {
     enable = true;
@@ -25,5 +28,14 @@ with pkgs.lib;
 
   programs.zsh = {
     enable = true;
+    oh-my-zsh = {
+      enable = true;
+      theme = "agnoster";
+    };
+    shellAliases = {
+      gg = "git status";
+    };
   };
+
+  programs.qutebrowser.enable = true;
 }
