@@ -83,14 +83,10 @@ ssh-keygen -t ed25519 -C "<email>"
 mkdir ~/projects
 git clone git@github.com:bjrnmrtns/system-installation.git
 sudo rm -rf /etc/nixos/
-sudo ln -s ~/projects/system-installation/nixos/hosts/ironside/ /etc/nixos
-```
-
-## add home-manager
-```
-nix-channel --add https://github.com/nix-community/home-manager/archive/release-21.05.tar.gz home-manager
-nix-channel --update
+export NIXOS_CONFIG=/home/bjorn/projects/system-installation/nixos/hosts/ironside.nix
 ```
 
 ## Rebuilding the adapted configuration and take effect after reboot
-nixos-rebuild boot
+```
+sudo -E nixos-rebuild boot # -E is needed so exported variables can be used in sudo context
+```
