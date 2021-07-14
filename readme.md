@@ -53,6 +53,7 @@ Now adapt the configuration (Legacy Boot)
 Add the lines:
 ```
 boot.loader.gub.device = "/dev/sda";
+```
 -- Installation
 Add git/neovim/wget/firefox as system packages to configuration.nix
 ```
@@ -90,3 +91,42 @@ export NIXOS_CONFIG=/home/bjorn/projects/system-installation/nixos/hosts/ironsid
 ```
 sudo -E nixos-rebuild boot # -E is needed so exported variables can be used in sudo context
 ```
+
+
+# Making a bootable usb-stick from MacOS
+
+1. Download iso e.g. latest Ubuntu
+2. Insert usb stick
+3. Run: diskutil list
+4. Look for the correct drive of the USB stick, e.g. /dev/disk3 (be carefull, you don't want to overwrite the MacOS partition)
+5. If the disk is mounted, unmount it with diskutility. You do not want to eject it.
+6. Use dd (like on linux) for creating the USB stick.
+7. Run: sudo dd if=ubuntu.iso of=/dev/disk3 bs=4M
+8. Make sure the other system will boot from the USB stick.
+9. Insert USB stick.
+10. Boot system.
+11. Start installation. When partitioning make sure you create a UEFI partition.
+
+
+# Making a bootable usb-stick from MacOS
+
+1. Download iso e.g. Windows 10 Pro 
+2. Insert usb stick
+3. Run: diskutil list
+4. Look for the correct drive of the USB stick, e.g. /dev/disk3 (be carefull, you don't want to overwrite the MacOS partition)
+5. diskutil eraseDisk MS-DOS "WIN10" GPT /dev/disk3
+6. if step 5 fails Run: diskutil eraseDisk MS-DOS "WIN10" MBR /dev/disk3
+7. hdiutil mount ~/Downloads/win10.iso
+8. rsync -vha --exclude=sources/install.wim /Volumes/CCCOMA_X64FRE_EN-US_DV9/ /Volumes/WIN10
+9. brew install wimlib
+10. mkdir /Volumes/WIN10/sources
+11. wimlib-imagex split /Volumes/CCCOMA_X64FRE_EN-US_DV9/sources/install.wim /Volumes/WIN10/sources/install.swm 4000
+12. eject stick
+13. Insert in other machine.
+14. Boot from partition 2, to install windows.
+15. At the start of installation press shift F10
+16. Run: diskpart
+17. Run: list disk
+18. Run: select disk 0 // look for the correct disk
+19. convert gpt
+20. Start windows installation
