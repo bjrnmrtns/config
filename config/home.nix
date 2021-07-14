@@ -11,6 +11,7 @@ with pkgs.lib;
   xdg.configFile."nvim/init.vim".source = ./nvim/init.vim;
   xdg.configFile."alacritty/alacritty.yml".source = ./alacritty.yml;
   xdg.configFile."tmux/tmux.conf".source = ./tmux.conf;
+  xdg.configFile."i3/config".source = i3/config;
 
   home.packages = with pkgs; [
     alacritty
