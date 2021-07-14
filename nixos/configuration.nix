@@ -82,6 +82,8 @@ in
     nerdfonts
   ];
 
+  virtualisation.docker.enable = true;
+
   security.sudo.wheelNeedsPassword = false;
 
   users.users.${config.settings.username} = {
@@ -89,7 +91,7 @@ in
     createHome = true;
     home = "/home/${config.settings.username}";
     description = "${config.settings.name}";
-    extraGroups = [ "networkmanager" "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "networkmanager" "docker" "wheel" ]; # Enable ‘sudo’ for the user.
     shell = pkgs.zsh;
   };
 
