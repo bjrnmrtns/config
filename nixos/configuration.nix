@@ -78,6 +78,10 @@ in
     git
   ];
 
+  fonts.fonts = with pkgs; [
+    nerdfonts
+  ];
+
   security.sudo.wheelNeedsPassword = false;
 
   users.users.${config.settings.username} = {

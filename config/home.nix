@@ -9,6 +9,7 @@ with pkgs.lib;
   nixpkgs.config = import ./nixpkgs.nix;
   xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs.nix;
   xdg.configFile."nvim/init.vim".source = ./nvim/init.vim;
+  xdg.configFile."alacritty/alacritty.yml".source = ./alacritty.yml;
 
   home.packages = with pkgs; [
     alacritty
