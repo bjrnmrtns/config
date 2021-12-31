@@ -118,7 +118,12 @@ sudo -E nixos-rebuild boot # -E is needed so exported variables can be used in s
 20. enable Steam -> Settings -> Steam Play -> Steam Play for all titles
 
 ## fix assetto corsa on steam
-1. 
+1. sudo apt-get install python3-pip python3-setuptools python3-venv pipx winetricks
+2. pipx install protontricks
+3. protontricks-desktop-install
+4. pipx upgrade protontricks
+5. Set proton version to proton 5.0-10
+6. protontricks 244210 dotnet472
 
 
 # Making a bootable windows usb-stick from MacOS
