@@ -117,6 +117,9 @@ sudo -E nixos-rebuild boot # -E is needed so exported variables can be used in s
 19. start ./steam
 20. enable Steam -> Settings -> Steam Play -> Steam Play for all titles
 
+## fix assetto corsa on steam
+1. 
+
 
 # Making a bootable windows usb-stick from MacOS
 
