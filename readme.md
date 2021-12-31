@@ -93,9 +93,9 @@ sudo -E nixos-rebuild boot # -E is needed so exported variables can be used in s
 ```
 
 
-# Making a bootable usb-stick from MacOS
+# Making a bootable linux usb-stick from MacOS
 
-1. Download iso e.g. latest Ubuntu
+1. Download iso e.g. latest Ubuntu Mate
 2. Insert usb stick
 3. Run: diskutil list
 4. Look for the correct drive of the USB stick, e.g. /dev/disk3 (be carefull, you don't want to overwrite the MacOS partition)
@@ -106,9 +106,19 @@ sudo -E nixos-rebuild boot # -E is needed so exported variables can be used in s
 9. Insert USB stick.
 10. Boot system.
 11. Start installation. When partitioning make sure you create a UEFI partition.
+12. sudo apt-get install git tmux neovim zsh rxvt-unicode steam-installer
+13. add ssh key to github
+14. git clone git@github.com:bjrnmrtns/nixos-config.git
+15. git clone git@github.com:bjrnmrtns/dotfiles.git
+16. set git username and email
+16. ~/projects/dotfiles/setup-linux.sh
+17. set capslock as ctrl
+18. logout
+19. start ./steam
+20. enable Steam -> Settings -> Steam Play -> Steam Play for all titles
 
 
-# Making a bootable usb-stick from MacOS
+# Making a bootable windows usb-stick from MacOS
 
 1. Download iso e.g. Windows 10 Pro 
 2. Insert usb stick
@@ -130,3 +140,5 @@ sudo -E nixos-rebuild boot # -E is needed so exported variables can be used in s
 18. Run: select disk 0 // look for the correct disk
 19. convert gpt
 20. Start windows installation
+
+
