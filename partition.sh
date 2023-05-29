@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Run lsblk to change disk and make sure you use the right one as it is being formatted
+
 DISK=vda
 
 sudo parted /dev/${DISK} -- mklabel msdos
