@@ -4,29 +4,23 @@
 https://nixos.org/download.html
 ```
 Execute  ``installation/partition.sh
+
+Change the following line to the correct boot device used in partition.sh
 ```
-boot.loader.gub.device = "/dev/sda";
+boot.loader.gub.device = "/dev/vda";
 ```
--- Installation
-Add git/neovim/wget/firefox as system packages to configuration.nix
+Copy configuration
 ```
-environment.systemPackage = with pkgs; [
-  neovim
-  git
-  wget
-  firefox
-];
+cp installation/configuration.nix /mnt/etc/nixos/
 ```
+
 ```
 sudo nixos-install
 sudo reboot
 ```
 
--- Add user
+-- Add ssh key for user
 ```
-useradd -c "<first-name last-name>" -m "<username>"
-passwd "<username>"
-su <username>
 ssh-keygen -t ed25519 -C "<email>"
 ```
 - add key to github
