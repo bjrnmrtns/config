@@ -19,6 +19,9 @@ sudo nixos-install
 sudo reboot
 ```
 
+# Start qemu box with 5555 forwarded
+qemu-system-x86_64 -m 8G -smp 6 -cdrom nixos-minimal-22.11.4369.99fe1b87052-x86_64-linux.iso -drive file=nixos.qcow2,if=virtio -vga virtio -display default,show-cursor=on -usb -device usb-tablet -cpu host -machine type=q35,accel=hvf -net nic -net user,hostfwd=tcp::5555-:22
+
 -- Add ssh key for user
 ```
 ssh-keygen -t ed25519 -C "<email>"
