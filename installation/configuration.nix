@@ -16,7 +16,7 @@
 
   services.openssh.enable = true;
 
-  options.security.sudo.wheelNeedsPassword = false;
+  security.sudo.wheelNeedsPassword = false;
 
   users.users.bjorn = {
     isNormalUser = true;

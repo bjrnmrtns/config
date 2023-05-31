@@ -46,6 +46,10 @@ Copy configuration
 sudo cp configuration.nix /mnt/etc/nixos/
 ```
 
+```
+sudo nixos-install && sudo reboot
+```
+
 -- Add ssh key for user
 ```
 ssh-keygen -t ed25519 -C "<email>"
@@ -53,10 +57,6 @@ ssh-keygen -t ed25519 -C "<email>"
 - add key to github
 - add <user-name> to sudoers file
 
-
-```
-sudo nixos-install && sudo reboot
-```
 
 ## Updating configuration after base installation
 ### Clone repo
