@@ -54,17 +54,16 @@ sudo nixos-install && sudo reboot
 ```
 ssh-keygen -t ed25519 -C "<email>"
 ```
-- add key to github
-- add <user-name> to sudoers file
+- add public key to github
 
 
 ## Updating configuration after base installation
 ### Clone repo
 ```
-mkdir ~/projects
-git clone git@github.com:bjrnmrtns/system-installation.git
+cd ~
+git clone git@github.com:bjrnmrtns/nixos-config.git
 sudo rm -rf /etc/nixos/
-export NIXOS_CONFIG=/home/bjorn/projects/system-installation/nixos/hosts/ironside.nix
+export NIXOS_CONFIG=/home/bjorn/nixos-config/installation/configuration.nix
 ```
 
 ### Rebuilding the adapted configuration and take effect after reboot
