@@ -23,7 +23,7 @@ Something about creating a bootable usb with iso
 ## General installatioon
 ### Download scripts for installation
 ```
-curl https://raw.githubusercontent.com/bjrnmrtns/nixos-config/installation/download.sh
+curl https://raw.githubusercontent.com/bjrnmrtns/nixos-config/master/installation/download.sh
 ```
 ```
 ./download.sh
@@ -34,16 +34,16 @@ Change the DISK variable in partition.sh if needed
 ```
 Generate ininitial configuration
 ```
-nixos-generate-config
+sudo nixos-generate-config
 ```
 
-Change the following line in /mnt/etc/nixos/hardware-configuration.nix the correct boot device used in partition.sh
+Change the following line in configuration.nix the correct boot device used in partition.sh
 ```
 boot.loader.gub.device = "/dev/vda";
 ```
 Copy configuration
 ```
-cp configuration.nix /mnt/etc/nixos/
+sudo cp configuration.nix /mnt/etc/nixos/
 ```
 
 -- Add ssh key for user
@@ -55,8 +55,7 @@ ssh-keygen -t ed25519 -C "<email>"
 
 
 ```
-sudo nixos-install
-sudo reboot
+sudo nixos-install && sudo reboot
 ```
 
 ## Updating configuration after base installation
