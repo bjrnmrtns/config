@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./hardware-configuration.nix
+    ./qemu-guest-hc.nix
   ];
 
   # Use the GRUB 2 boot loader.
@@ -20,6 +20,7 @@
   
   programs.neovim.enable = true;
   programs.neovim.defaultEditor = true;
+  programs.neovim.viAlias = true;
 
   users.users.bjorn = {
     isNormalUser = true;
