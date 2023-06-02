@@ -23,7 +23,7 @@ Something about creating a bootable usb with iso
 ## General installatioon
 ### Download scripts for installation
 ```
-curl https://raw.githubusercontent.com/bjrnmrtns/nixos-config/master/installation/download.sh
+curl https://raw.githubusercontent.com/bjrnmrtns/nixos-config/master/download.sh
 ```
 ```
 ./download.sh
@@ -62,6 +62,8 @@ ssh-keygen -t ed25519 -C "<email>"
 ```
 cd ~
 git clone git@github.com:bjrnmrtns/nixos-config.git
+sudo cp /etc/nixos/hardware-configuration ./
+git add -u && git commit -m "Update hardware-configuration" && git push
 sudo rm -rf /etc/nixos/
 sudo ln -s ${PWD} /etc/nixos
 ```
