@@ -18,9 +18,12 @@ qemu-system-x86_64 -m 8G -smp 6 -cdrom nixos-minimal-22.11.4369.99fe1b87052-x86_
 ```
 
 ## Installing on pc
-Something about creating a bootable usb with iso
+Create usb stick with iso
+```
+sudo dd if=<iso-file-name> of=<usb-stick-dev-file-name> bs=4M
+```
 
-## General installatioon
+## General installation (most of it is about installing on a real system with uefi boot)
 ### Download scripts for installation
 ```
 curl https://raw.githubusercontent.com/bjrnmrtns/nixos-config/master/download.sh
@@ -30,16 +33,8 @@ curl https://raw.githubusercontent.com/bjrnmrtns/nixos-config/master/download.sh
 ```
 Change the DISK variable in partition.sh if needed
 ```
-./partition.sh
-```
-Generate ininitial configuration
-```
-sudo nixos-generate-config
-```
+./partition-uefi-mount-and-nixos-generate-config.sh
 
-Change the following line in configuration.nix the correct boot device used in partition.sh
-```
-boot.loader.gub.device = "/dev/vda";
 ```
 Copy configuration
 ```
@@ -47,7 +42,7 @@ sudo cp configuration.nix /mnt/etc/nixos/
 ```
 
 ```
-sudo nixos-install && sudo reboot
+sudo nixos-install && sudo nixos-rebuild switch && sudo reboot
 ```
 
 -- Add ssh key for user
