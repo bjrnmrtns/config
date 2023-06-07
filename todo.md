@@ -11,4 +11,4 @@
 - install/configure gitea
 - intalll/configure wireguard
 - install/impermancence -> make sure to exclude important dirs (.ssh?)
-
+- force ssl on nginx (letsencrypt?)
