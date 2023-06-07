@@ -6,4 +6,9 @@
 + for the above step we need a way to get public keys from other machines
 - side-note not really todo -> every machine has its own private / public key pair, vaultwarden should only contain passphrases, but not if no two machines have access to another machine then private keys should be part of vaultwarden
 - tap device on host machine for networking performance
-- check if root is allowed on ssh, it should not (should only usable with physical access)
++ check if root is allowed on ssh, it should not (should only usable with physical access) -> root is not allowed to login over ssh
+- install/configure nginx
+- install/configure gitea
+- intalll/configure wireguard
+- install/impermancence -> make sure to exclude important dirs (.ssh?)
+

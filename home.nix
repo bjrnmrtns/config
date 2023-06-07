@@ -3,6 +3,7 @@
   home.homeDirectory = "/home/bjorn";
   home.packages = [
     pkgs.git
+    pkgs.nmap
   ];
   programs.git = {
     enable = true;
