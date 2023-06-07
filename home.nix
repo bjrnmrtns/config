@@ -4,6 +4,7 @@
   home.packages = [
     pkgs.git
     pkgs.nmap
+    pkgs.lynx
   ];
   programs.git = {
     enable = true;
