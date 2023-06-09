@@ -50,6 +50,7 @@ sudo nixos-install && sudo nixos-rebuild switch && sudo reboot
 ssh-keygen -t ed25519 -C "<email>"
 ```
 - add public key to github
+- add public key to gitolite config
 
 
 ## Updating configuration after base installation
