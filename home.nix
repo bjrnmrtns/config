@@ -1,11 +1,6 @@
 { pkgs, ... }: {
   home.username = "bjorn";
   home.homeDirectory = "/home/bjorn";
-  home.packages = [
-    pkgs.git
-    pkgs.nmap
-    pkgs.lynx
-  ];
   programs.git = {
     enable = true;
     userName =  "Bjorn Martens";

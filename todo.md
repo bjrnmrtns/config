@@ -12,3 +12,4 @@
 - install/impermancence -> make sure to exclude important dirs (.ssh?)
 - put nixos-config in gitolite and mirror on github
 - put all repos in gitolite and mirror public ones on github
+- check howto handle home-manager in new config structure with modules and host configs

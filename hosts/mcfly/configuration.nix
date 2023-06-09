@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     agenix.nixosModules.default
     ../../modules/gitolite.nix
+    ../../modules/programs.nix
   ];
 
   # Use the GRUB 2 boot loader.
