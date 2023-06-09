@@ -9,7 +9,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "mcfly"; # Define your hostname.
+  networking.hostName = "mcfly";
   
   time.timeZone = "Europe/Amsterdam";
 
