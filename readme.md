@@ -68,3 +68,8 @@ sudo ln -s ${PWD} /etc/nixos
 sudo nixos-rebuild switch
 ```
 
+## Using gitolite
+Adding users is done by adding a <username>@<does not matter hostname>.pub file of ssh to the gitolite-admin/conf/keydir directory.
+However you always use the gitolite user to clone. E.g. git clone ssh://gitolite@<ip-address>/<repo-name>.
+If your key is in conf/keydir you are able to clone.
+
