@@ -18,7 +18,7 @@
 
   outputs = inputs@{self, agenix, nixpkgs, home-manager, flake-utils, ... }: 
   let
-    baseModules = [
+    isoModules = [
       agenix.nixosModules.age
       ({ lib, pkgs,  ... }: {
         nix = {
@@ -43,7 +43,7 @@
 
       iso = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = baseModules ++ ["${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"];
+        modules = isoModules ++ ["${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"];
       };
 
       mcfly = nixpkgs.lib.nixosSystem {
