@@ -16,12 +16,34 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, flake-utils, ... }: {
+  outputs = inputs@{self, agenix, nixpkgs, home-manager, flake-utils, ... }: 
+  let
+    baseModules = [
+      agenix.nixosModules.age
+      ({ lib, pkgs,  ... }: {
+        nix = {
+          package = pkgs.nixUnstable;
+          extraOptions = "experimental-features = nix-command flakes recursive-nix";
+        };
+
+        networking = {
+          networkmanager.enable = true;
+          wireless.enable = lib.mkForce false;
+          # ^because WPA Supplicant cannot run with NetworkManager
+        };
+
+        environment.systemPackages = with pkgs; [
+          age agenix
+          curl git neovim tmux
+        ];
+      })
+    ];
+  in {
     nixosConfigurations = {
 
       iso = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = ["${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"];
+        modules = baseModules ++ ["${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"];
       };
 
       mcfly = nixpkgs.lib.nixosSystem {
