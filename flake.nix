@@ -19,6 +19,11 @@
   outputs = inputs@{ self, nixpkgs, home-manager, flake-utils, ... }: {
     nixosConfigurations = {
 
+      iso = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = ["${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"];
+      };
+
       mcfly = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
 	modules = [ ./hosts/mcfly/configuration.nix
