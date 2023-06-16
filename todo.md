@@ -13,3 +13,17 @@
 - put nixos-config in gitolite and mirror on github
 - put all repos in gitolite and mirror public ones on github
 - check howto handle home-manager in new config structure with modules and host configs
+- check gitolite backup all repos
+
+# Steps for implement boostrapping
+ - create a host with agenix git gitolite (bare minimum)
+   - backup old host-key (private/public)
+   - partitioning
+   - user gitolite is created with new public private keypair
+   - public key is changed in gitolite.nix
+   - all gitolite repos execpt gitolite-admin are restored
+   - rebuild
+   - gitolite-admin contents is restored except gitolite-admin key
+   - rekey secrets with new host-key (restore old host-key private/public)
+   - remove old host key private/public
+   - get nixos-config and build full system, which now can use secrets

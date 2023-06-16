@@ -6,5 +6,6 @@
     fd
     ripgrep
     htop
+    tmux
   ];
 }
