@@ -4,6 +4,9 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    nix-darwin.url = "github:LnL7/nix-darwin";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+
     secrets = {
       url = "git+ssh://gitolite@mcfly:/bjorn/nixos-secrets?ref=master";
       flake = false;
@@ -16,7 +19,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{self, agenix, nixpkgs, home-manager, flake-utils, ... }: 
+  outputs = inputs@{self, agenix, nixpkgs, nix-darwin, home-manager, flake-utils, ... }: 
   let
     isoModules = [
       agenix.nixosModules.age
@@ -39,8 +42,16 @@
       })
     ];
   in {
+    darwinConfigurations = {
+      jennifer = nix-darwin.lib.darwinSystem {
+        system = "x86_64-darwin";
+        modules = [
+          ./hosts/jennifer/configuration.nix
+        ];
+        inputs = {inherit nix-darwin nixpkgs; };
+      };
+    };
     nixosConfigurations = {
-
       iso = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = isoModules ++ ["${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"];
@@ -55,12 +66,6 @@
 	    home-manager.users.bjorn = import ./home.nix;
 	  }
 	];
-	specialArgs = { inherit (inputs) agenix secrets; };
-      };
-      
-      jennifer = nixpkgs.lib.nixosSystem {
-        system = "x86_64-darwin";
-	modules = [ ./hosts/jennifer/configuration.nix ];
 	specialArgs = { inherit (inputs) agenix secrets; };
       };
     };

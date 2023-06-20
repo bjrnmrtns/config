@@ -2,23 +2,25 @@
 
 {
   imports = [
-    ../../modules/programs.nix
-    ../../modules/agenix.nix
+#    ../../modules/programs.nix
+#    ../../modules/agenix.nix
   ];
+
+  services.nix-daemon.enable = true;
 
   # Use the GRUB 2 boot loader.
 
-  networking.hostName = "jennifer";
+#  networking.hostName = "jennifer";
   
-  time.timeZone = "Europe/Amsterdam";
+#  time.timeZone = "Europe/Amsterdam";
 
-  security.sudo.wheelNeedsPassword = false;
+#  security.sudo.wheelNeedsPassword = false;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+#  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  programs.neovim.enable = true;
-  programs.neovim.defaultEditor = true;
-  programs.neovim.viAlias = true;
+#  programs.neovim.enable = true;
+#  programs.neovim.defaultEditor = true;
+#  programs.neovim.viAlias = true;
 
-  system.stateVersion = "23.05";
+#  system.stateVersion = "23.05";
 }
