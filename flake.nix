@@ -57,7 +57,12 @@
 	];
 	specialArgs = { inherit (inputs) agenix secrets; };
       };
-
+      
+      jennifer = nixpkgs.lib.nixosSystem {
+        system = "x86_64-darwin";
+	modules = [ ./hosts/jennifer/configuration.nix ];
+	specialArgs = { inherit (inputs) agenix secrets; };
+      };
     };
   };
 }
