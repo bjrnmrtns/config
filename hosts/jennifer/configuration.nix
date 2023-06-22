@@ -156,15 +156,10 @@ alt - t : yabai -m window --toggle float;\
   '';
 in {
   imports = [
-    ../../modules/programs-darwin.nix
-    ../../modules/programs.nix
   ];
 
   services.nix-daemon.enable = true;
   nix.package = pkgs.nix;
-
-  programs.zsh.enable = true;
-
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   users.users.bjornmartens = {
