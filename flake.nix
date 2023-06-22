@@ -25,6 +25,11 @@
         system = "x86_64-darwin";
         modules = [
           ./hosts/jennifer/configuration.nix
+          home-manager.darwinModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.bjornmartens = import ./home-darwin.nix;
+          }
         ];
         specialArgs = { inherit (inputs) nix-darwin agenix secrets; };
 #        inputs = {inherit agenix nix-darwin nixpkgs; };

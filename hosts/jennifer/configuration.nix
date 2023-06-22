@@ -167,6 +167,11 @@ in {
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  users.users.bjornmartens = {
+    name = "bjornmartens";
+    home = "/Users/bjornmartens"; 
+  };
+
   services.skhd = {
     enable = true;
     skhdConfig = ''

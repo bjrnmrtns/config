@@ -7,10 +7,5 @@
     fd
     ripgrep
     htop
-    tmux
-    helix
-    starship
-    nushell
-    spotify-tui
   ];
 }
