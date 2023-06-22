@@ -19,29 +19,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{self, agenix, nixpkgs, nix-darwin, home-manager, flake-utils, ... }: 
-  let
-    isoModules = [
-      agenix.nixosModules.age
-      ({ lib, pkgs,  ... }: {
-        nix = {
-          package = pkgs.nixUnstable;
-          extraOptions = "experimental-features = nix-command flakes recursive-nix";
-        };
-
-        networking = {
-          networkmanager.enable = true;
-          wireless.enable = lib.mkForce false;
-          # ^because WPA Supplicant cannot run with NetworkManager
-        };
-
-        environment.systemPackages = with pkgs; [
-          age agenix
-          curl git neovim tmux
-        ];
-      })
-    ];
-  in {
+  outputs = inputs@{self, agenix, nixpkgs, nix-darwin, home-manager, flake-utils, ... }: {
     darwinConfigurations = {
       jennifer = nix-darwin.lib.darwinSystem {
         system = "x86_64-darwin";
@@ -55,7 +33,9 @@
     nixosConfigurations = {
       iso = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = isoModules ++ ["${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"];
+        modules = [ agenix.nixosModules.age ./hosts/iso/configuration.nix ]
+               ++ ["${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"];
+        specialArgs = { inherit (inputs) agenix; };
       };
 
       mcfly = nixpkgs.lib.nixosSystem {
