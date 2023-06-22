@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-sudo nix-build '.#mcfly'
+darwin-rebuild switch --flake .#jennifer

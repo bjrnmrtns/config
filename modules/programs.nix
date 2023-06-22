@@ -1,5 +1,6 @@
 { config, pkgs, ... }: {
   environment.systemPackages = with pkgs; [
+    neovim
     git
     nmap
     lynx
@@ -7,5 +8,6 @@
     ripgrep
     htop
     tmux
+    helix
   ];
 }

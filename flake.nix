@@ -48,7 +48,8 @@
         modules = [
           ./hosts/jennifer/configuration.nix
         ];
-        inputs = {inherit nix-darwin nixpkgs; };
+        specialArgs = { inherit (inputs) nix-darwin agenix secrets; };
+#        inputs = {inherit agenix nix-darwin nixpkgs; };
       };
     };
     nixosConfigurations = {
@@ -59,14 +60,14 @@
 
       mcfly = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-	modules = [ ./hosts/mcfly/configuration.nix
-	  home-manager.nixosModules.home-manager {
-	    home-manager.useGlobalPkgs = true;
-	    home-manager.useUserPackages = true;
-	    home-manager.users.bjorn = import ./home.nix;
-	  }
-	];
-	specialArgs = { inherit (inputs) agenix secrets; };
+        modules = [ ./hosts/mcfly/configuration.nix
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.bjorn = import ./home.nix;
+          }
+        ];
+        specialArgs = { inherit (inputs) agenix secrets; };
       };
     };
   };
