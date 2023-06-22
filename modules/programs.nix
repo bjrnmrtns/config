@@ -9,5 +9,8 @@
     htop
     tmux
     helix
+    starship
+    nushell
+    spotify-tui
   ];
 }
