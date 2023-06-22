@@ -165,11 +165,6 @@ in {
 
   programs.zsh.enable = true;
 
-  programs.helix = {
-    enable = true;
-    defaultEditor = true;
-  };
-  
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   services.skhd = {
