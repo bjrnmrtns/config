@@ -74,3 +74,17 @@ Adding users is done by adding a <username>@<does not matter hostname>.pub file 
 However you always use the gitolite user to clone. E.g. git clone ssh://gitolite@<ip-address>/<repo-name>.
 If your key is in conf/keydir you are able to clone.
 
+## Setup nix on MacOS
+
+### Bootstrap
+```
+curl -L https://nixos.org/nix/install | sh
+nix build --extra-experimental-features "nix-command flakes" .#darwinConfigurations.jennifer.system
+./result/sw/bin/darwin-rebuild switch --flake .#jennifer
+rm -rf ./result
+```
+
+### Updating config
+After every config change run
+darwin-rebuild switch --flake .#jennifer
+

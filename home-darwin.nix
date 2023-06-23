@@ -29,6 +29,9 @@
       };
     };
   };
+
+  programs.zsh.enable = true;
+
   programs.git = {
     enable = true;
     userName =  "Bjorn Martens";

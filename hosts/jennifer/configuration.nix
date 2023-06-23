@@ -157,6 +157,7 @@ alt - t : yabai -m window --toggle float;\
 in {
   imports = [
     ../../modules/programs.nix
+    ../../modules/programs-darwin.nix
   ];
 
   services.nix-daemon.enable = true;
@@ -166,6 +167,7 @@ in {
   users.users.bjornmartens = {
     name = "bjornmartens";
     home = "/Users/bjornmartens"; 
+    shell = pkgs.zsh;
   };
 
   services.skhd = {
