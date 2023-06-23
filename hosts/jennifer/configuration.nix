@@ -156,6 +156,7 @@ alt - t : yabai -m window --toggle float;\
   '';
 in {
   imports = [
+    ../../modules/programs.nix
   ];
 
   services.nix-daemon.enable = true;

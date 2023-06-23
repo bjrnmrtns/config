@@ -1,6 +1,11 @@
 { config, pkgs, ... }: {
   environment.systemPackages = with pkgs; [
-    llvm
-    lldb
+    neovim
+    git
+    nmap
+    lynx
+    fd
+    ripgrep
+    htop
   ];
 }
