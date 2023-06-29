@@ -30,8 +30,6 @@
     };
   };
 
-  programs.zsh.enable = true;
-
   programs.git = {
     enable = true;
     userName =  "Bjorn Martens";
@@ -59,6 +57,7 @@
       '';
     };
   };
+
   programs.helix = {
     package = pkgs.helix;
     enable = true;

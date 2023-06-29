@@ -1,4 +1,4 @@
-{ agenix, config, pkgs, secrets, ... }:
+{ agenix, rust-overlay, config, pkgs, secrets, ... }:
 let
   laucherConfig = ''
 # focus window
@@ -160,9 +160,14 @@ in {
     ../../modules/programs-darwin.nix
   ];
 
+  nixpkgs.overlays = [ rust-overlay.overlays.default ];
+  environment.systemPackages = [ pkgs.rust-bin.stable.latest.complete ];
+
   services.nix-daemon.enable = true;
   nix.package = pkgs.nix;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  programs.zsh.enable = true;
 
   users.users.bjornmartens = {
     name = "bjornmartens";

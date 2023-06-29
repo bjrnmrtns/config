@@ -7,6 +7,8 @@
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
+    rust-overlay.url = "github:oxalica/rust-overlay";
+
     secrets = {
       url = "git+ssh://gitolite@mcfly:/bjorn/nixos-secrets?ref=master";
       flake = false;
@@ -19,7 +21,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{self, agenix, nixpkgs, nix-darwin, home-manager, flake-utils, ... }: {
+  outputs = inputs@{self, agenix, nixpkgs, nix-darwin, home-manager, rust-overlay, flake-utils, ... }: {
     darwinConfigurations = {
       jennifer = nix-darwin.lib.darwinSystem {
         system = "x86_64-darwin";
@@ -31,7 +33,7 @@
             home-manager.users.bjornmartens = import ./home-darwin.nix;
           }
         ];
-        specialArgs = { inherit (inputs) nix-darwin agenix secrets; };
+        specialArgs = { inherit (inputs) rust-overlay nix-darwin agenix secrets; };
 #        inputs = {inherit agenix nix-darwin nixpkgs; };
       };
     };
