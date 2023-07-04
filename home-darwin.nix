@@ -30,6 +30,33 @@
     };
   };
 
+  programs.neovim = {
+    enable = true;
+    plugins = with pkgs.vimPlugins; [
+      nvim-lspconfig
+      plenary-nvim
+      nvim-treesitter.withAllGrammars
+      { 
+        plugin = neorg;
+        type = "lua";
+        config = ''
+          require('neorg').setup {
+            load = {
+              ["core.defaults"] = {},
+              ["core.dirman"] = {
+                config = {
+                  workspaces = {
+                    home = "~/notes/home",
+                  }
+                }                
+              }
+            }
+          }
+        '';
+      }
+    ];
+  };
+
   programs.git = {
     enable = true;
     userName =  "Bjorn Martens";
