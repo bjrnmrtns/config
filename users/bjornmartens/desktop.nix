@@ -1,6 +1,6 @@
 { config, lib, pkgs, inputs, ...}: {
   imports = [
-    ./modules/yabai.nix
+    ./modules/alacritty.nix
   ];
 }
 

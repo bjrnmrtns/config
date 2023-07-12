@@ -158,15 +158,17 @@ in {
   imports = [
     ../../modules/programs.nix
   ];
+ 
+  programs.zsh.enable = true;
 
-    home-manager =  {
-      useGlobalPkgs = true;
-      useUserPackages = true;
-      users = import "${inputs.self}/users";
-      extraSpecialArgs = { 
-        inherit inputs;
-        headless = false;
-      };
+  home-manager =  {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users = import "${inputs.self}/users";
+    extraSpecialArgs = { 
+      inherit inputs;
+      headless = false;
+    };
   };
 
   nixpkgs.overlays = [ inputs.rust-overlay.overlays.default ];
@@ -175,8 +177,6 @@ in {
   services.nix-daemon.enable = true;
   nix.package = pkgs.nix;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  programs.zsh.enable = true;
 
   users.users.bjornmartens = {
     name = "bjornmartens";
