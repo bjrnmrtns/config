@@ -17,7 +17,7 @@
 
   outputs = {self, agenix, nixpkgs, nix-darwin, home-manager, rust-overlay, ... }@inputs: {
     darwinConfigurations = {
-      Bjorns-MacBook-Pro = nix-darwin.lib.darwinSystem {
+      jennifer = nix-darwin.lib.darwinSystem {
         system = "x86_64-darwin";
         modules = [
           ./hosts/jennifer/configuration.nix
