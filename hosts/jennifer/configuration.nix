@@ -163,7 +163,10 @@ in {
       useGlobalPkgs = true;
       useUserPackages = true;
       users = import "${inputs.self}/users";
-      extraSpecialArgs = { inherit inputs; };
+      extraSpecialArgs = { 
+        inherit inputs;
+        headless = false;
+      };
   };
 
   nixpkgs.overlays = [ inputs.rust-overlay.overlays.default ];

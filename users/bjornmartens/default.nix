@@ -1,4 +1,8 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, headless ? true, ... }: {
+
+  imports = [
+    (!headless) ./desktop.nix
+  ];
   programs.home-manager.enable = true;
 
   home = {
