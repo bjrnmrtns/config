@@ -1,19 +1,13 @@
 {
-  description = "NixOS system config in flake";
+  description = "Bjorn's Nix configuration";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     rust-overlay.url = "github:oxalica/rust-overlay";
 
-    secrets = {
-      url = "git+ssh://gitolite@mcfly:/bjorn/nixos-secrets?ref=master";
-      flake = false;
-    };
-    
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -21,20 +15,15 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{self, agenix, nixpkgs, nix-darwin, home-manager, rust-overlay, flake-utils, ... }: {
+  outputs = {self, agenix, nixpkgs, nix-darwin, home-manager, rust-overlay, ... }@inputs: {
     darwinConfigurations = {
-      jennifer = nix-darwin.lib.darwinSystem {
+      Bjorns-MacBook-Pro = nix-darwin.lib.darwinSystem {
         system = "x86_64-darwin";
         modules = [
           ./hosts/jennifer/configuration.nix
-          home-manager.darwinModules.home-manager {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.bjornmartens = import ./home-darwin.nix;
-          }
+          home-manager.darwinModules.home-manager
         ];
-        specialArgs = { inherit (inputs) rust-overlay nix-darwin agenix secrets; };
-#        inputs = {inherit agenix nix-darwin nixpkgs; };
+        specialArgs = { inherit inputs; };
       };
     };
     nixosConfigurations = {
@@ -42,7 +31,7 @@
         system = "x86_64-linux";
         modules = [ agenix.nixosModules.age ./hosts/iso/configuration.nix ]
                ++ ["${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"];
-        specialArgs = { inherit (inputs) agenix; };
+        specialArgs = { inherit inputs; };
       };
 
       mcfly = nixpkgs.lib.nixosSystem {
@@ -54,7 +43,7 @@
             home-manager.users.bjorn = import ./home.nix;
           }
         ];
-        specialArgs = { inherit (inputs) agenix secrets; };
+        specialArgs = { inherit inputs; };
       };
     };
   };

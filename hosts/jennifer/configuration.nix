@@ -1,4 +1,4 @@
-{ agenix, rust-overlay, config, pkgs, secrets, ... }:
+{ config, pkgs, inputs, ... }:
 let
   laucherConfig = ''
 # focus window
@@ -157,10 +157,16 @@ alt - t : yabai -m window --toggle float;\
 in {
   imports = [
     ../../modules/programs.nix
-    ../../modules/programs-darwin.nix
   ];
 
-  nixpkgs.overlays = [ rust-overlay.overlays.default ];
+    home-manager =  {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.bjornmartens = import ./home-darwin.nix;
+    extraSpecialArgs = { inherit inputs; };
+  };
+
+  nixpkgs.overlays = [ inputs.rust-overlay.overlays.default ];
   environment.systemPackages = [ pkgs.rust-bin.stable.latest.complete ];
 
   services.nix-daemon.enable = true;
