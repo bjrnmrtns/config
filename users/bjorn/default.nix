@@ -8,6 +8,14 @@
   home = {
     username = "bjorn";
     homeDirectory = "/home/bjorn";
+    packages = with pkgs; [
+      nmap
+      fd
+      ripgrep
+      htop
+      btop
+      lynx
+    ];
   };
 
   programs.git = {

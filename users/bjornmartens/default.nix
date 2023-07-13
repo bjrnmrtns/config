@@ -10,6 +10,14 @@
   home = {
     username = "bjornmartens";
     homeDirectory = "/Users/bjornmartens";
+    packages = with pkgs; [
+      nmap
+      fd
+      ripgrep
+      htop
+      btop
+      lynx
+    ];
   };
 
   programs.git = {

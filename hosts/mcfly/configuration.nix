@@ -4,8 +4,6 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/gitolite.nix
-    ../../modules/programs.nix
-    ../../modules/programs-linux.nix
     ../../modules/agenix.nix
     ../../modules/avahi.nix
   ];
