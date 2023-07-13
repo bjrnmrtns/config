@@ -1,6 +1,9 @@
 { pkgs, lib, inputs, headless ? true, ... }: {
 
-  imports = [] ++ lib.optional (!headless) ./desktop.nix;
+  imports = [
+    ../modules/neovim.nix
+    ../modules/helix.nix
+  ] ++ lib.optional (!headless) ./desktop.nix;
   
   home = {
     username = "bjorn";
