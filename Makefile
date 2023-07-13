@@ -2,7 +2,7 @@ HOSTNAME = $(shell hostname -s)
 UNAME_S = $(shell uname -s)
 
 ifeq ($(UNAME_S), Linux)
-    REBUILD = nixos-rebuild
+    REBUILD = sudo nixos-rebuild
 else ifeq ($(UNAME_S), Darwin)
     REBUILD = darwin-rebuild
 else
