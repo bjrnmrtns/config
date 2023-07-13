@@ -7,6 +7,7 @@
     ../../modules/programs.nix
     ../../modules/programs-linux.nix
     ../../modules/agenix.nix
+    ../../modules/avahi.nix
   ];
 
   programs.zsh.enable = true;
