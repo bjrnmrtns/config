@@ -1,4 +1,4 @@
-{ agenix, config, pkgs, secrets, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -8,6 +8,18 @@
     ../../modules/programs-linux.nix
     ../../modules/agenix.nix
   ];
+
+  programs.zsh.enable = true;
+  
+  home-manager =  {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.bjorn = import "${inputs.self}/users/bjorn";
+    extraSpecialArgs = { 
+      inherit inputs;
+      headless = true;
+    };
+  };
 
   # Use the GRUB 2 boot loader.
   boot.loader.systemd-boot.enable = true;

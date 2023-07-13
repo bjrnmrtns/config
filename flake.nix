@@ -37,11 +37,7 @@
       mcfly = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [ ./hosts/mcfly/configuration.nix
-          home-manager.nixosModules.home-manager {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.bjorn = import ./home.nix;
-          }
+          home-manager.nixosModules.home-manager
         ];
         specialArgs = { inherit inputs; };
       };

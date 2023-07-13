@@ -164,7 +164,7 @@ in {
   home-manager =  {
     useGlobalPkgs = true;
     useUserPackages = true;
-    users = import "${inputs.self}/users";
+    users.bjornmartens = import "${inputs.self}/users/bjornmartens";
     extraSpecialArgs = { 
       inherit inputs;
       headless = false;

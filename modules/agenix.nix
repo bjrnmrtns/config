@@ -1,10 +1,10 @@
-{ agenix, config, pkgs, ... }: {
+{ config, pkgs, inputs, ... }: {
 
   imports = [
-    agenix.nixosModules.default
+    inputs.agenix.nixosModules.default
   ];
 
   environment.systemPackages = with pkgs; [
-    age agenix.packages.${system}.default
+    age inputs.agenix.packages.${system}.default
   ];
 }
