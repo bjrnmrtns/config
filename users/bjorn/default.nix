@@ -15,6 +15,7 @@
       htop
       btop
       lynx
+      gnumake
     ];
   };
 
