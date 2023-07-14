@@ -17,6 +17,8 @@
       htop
       btop
       lynx
+      llvm
+      clang
     ];
   };
 
