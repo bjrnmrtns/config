@@ -47,13 +47,15 @@
       '';
     };
     shellAliases = {
+      gg = "git status";
       ebshell = "/Applications/EekBoek.app/Contents/MacOS/ebshell";
       ebi = "/Applications/EekBoek.app/Contents/MacOS/ebshell --init";
       ebjaareinde = "/Applications/EekBoek.app/Contents/MacOS/ebshell --command jaareinde --boekjaar=2023";
       ebbalans = "/Applications/EekBoek.app/Contents/MacOS/ebshell --comand balans";
       cdnixcfg = "cd ~/projects/nixcfg";
       cdaccounting = "cd ~/Documents/expeditious/Accounting/eekboek-2023";
-      cdhelp = ''echo "cdnixcfg cdaccounting"'';
+      cdinvoices = "cd ~/Documents/expeditious/Invoices/2023";
+      cdhelp = ''echo "cdnixcfg cdaccounting cdinvoices"'';
     };
   };
 
