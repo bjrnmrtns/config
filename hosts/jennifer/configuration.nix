@@ -1,7 +1,7 @@
 { config, pkgs, inputs, ... }: {
 
   imports = [
-    ../../modules/yabai+skhd.nix
+#    ../../modules/yabai+skhd.nix
   ];
  
   programs.zsh.enable = true;

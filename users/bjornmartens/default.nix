@@ -17,6 +17,7 @@
       htop
       btop
       lynx
+      jq
     ];
   };
 
