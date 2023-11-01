@@ -18,6 +18,7 @@
       btop
       lynx
       jq
+      tmux
     ];
   };
 
