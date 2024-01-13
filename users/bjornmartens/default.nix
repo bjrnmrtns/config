@@ -19,6 +19,8 @@
       lynx
       jq
       tmux
+      p7zip
+      unrar
     ];
   };
 
