@@ -1,5 +1,12 @@
 # Installation of NixOS
 
+## Directories in this repo
+- ./ is a nix repo with a flake.nix
+- ./dotfiles contains the dotfiles
+- ./docker contains docker configurations for certain applications
+- ./from-source contains applications which I built from source
+- ./packages.txt contains all the packages needed to be installed on an ubuntu system
+
 ## Download the latest NixOS minimal iso
 ```
 https://nixos.org/download.html
@@ -88,3 +95,7 @@ rm -rf ./result
 After every config change run
 darwin-rebuild switch --flake .#jennifer
 
+## Setup Ubuntu system
+xargs sudo apt-get --no-install-recommends -y install < packages.txt
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+cargo install zellij
