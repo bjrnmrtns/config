@@ -1,1 +1,1 @@
-gettext ninja-build libtool libtool-bin autoconf automake unzip ssh git docker.io docker-compose nmap tree net-tools avahi-daemon pkg-config neovim gcc clang clangd libsdl2-dev libglew-dev python-is-python3 curl wget
+gettext ninja-build libtool libtool-bin autoconf automake unzip ssh git docker.io docker-compose nmap tree net-tools avahi-daemon pkg-config gcc clang clangd libsdl2-dev libglew-dev python-is-python3 curl wget libegl1-mesa-dev libreoffice eekboek

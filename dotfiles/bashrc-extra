@@ -1,3 +1,12 @@
 export PATH=${PATH}:${HOME}/.local/bin
 export EDITOR=nvim
 export VISUAL=nvim
+
+alias update="xargs sudo apt-get --no-install-recommends -y install < ${HOME}/projects/config/packages.txt"
+alias packages="nvim ${HOME}/projects/config/packages.txt"
+
+# Eekboek shortcuts
+alias ebi='ebshell --init'
+alias ebjaareinde='ebshell --command jaareinde --boekjaar=2023'
+alias ebjaareinde2021='ebshell --command jaareinde --boekjaar=2021'
+alias ebbalans='ebshell --command balans'
