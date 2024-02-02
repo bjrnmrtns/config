@@ -1,1 +1,11 @@
-gettext ninja-build libtool libtool-bin autoconf automake unzip ssh git docker.io docker-compose nmap tree net-tools avahi-daemon pkg-config gcc clang clangd libsdl2-dev libglew-dev python-is-python3 curl wget libegl1-mesa-dev libreoffice eekboek borgbackup xournalpp gimp blender sway wofi alacritty qutebrowser
+gettext ninja-build libtool libtool-bin autoconf automake pkg-config gcc clang clangd python-is-python3
+unzip ssh git tree 
+curl wget nmap net-tools avahi-daemon 
+docker.io docker-compose 
+libsdl2-dev libglew-dev libegl1-mesa-dev 
+borgbackup
+xournalpp libreoffice eekboek gimp blender
+qutebrowser
+sway foot dmenu waybar light swaybg swayidle swayimg swaylock fonts-font-awesome
+powertop htop
+mutt
