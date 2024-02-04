@@ -1,6 +1,6 @@
 * {
   font-family: "Ubuntu Nerd Font";
-  font-size: 13px;
+  font-size: 10px;
   min-height: 0;
 }
 
@@ -9,8 +9,6 @@ window#waybar {
   /* background: black; */
   background: rgba(40, 44, 52, 0.85);
   color: white;
-  border: 1px solid #8fd4ff;
-  border-radius: 10px;
 }
 
 #window {
@@ -20,7 +18,6 @@ window#waybar {
 #workspaces button.focused {
   color: white;
   border: 1px solid #8fd4ff;
-  border-radius: 10px;
 }
 
 #tray,
@@ -65,7 +62,6 @@ window#waybar {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
-  border-radius: 5px;
 }
 
 #battery.warning:not(.charging) {
@@ -75,7 +71,6 @@ window#waybar {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
-  border-radius: 5px;
 }
 
 #network.disconnected {
