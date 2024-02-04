@@ -6,6 +6,6 @@ libsdl2-dev libglew-dev libegl1-mesa-dev
 borgbackup
 xournalpp libreoffice eekboek gimp blender
 qutebrowser
-sway foot dmenu waybar light swaybg swayidle swayimg swaylock fonts-font-awesome
+sway foot dmenu waybar light swaybg swayidle swayimg swaylock fonts-font-awesome tmux
 powertop htop
 mutt
