@@ -1,11 +1,11 @@
-gettext ninja-build libtool libtool-bin autoconf automake pkg-config gcc clang clangd python-is-python3
-unzip ssh git tree 
+gettext ninja-build cmake make libtool libtool-bin autoconf automake pkg-config gcc clang clangd python-is-python3
+unzip ssh git stow tree 
 curl wget nmap net-tools avahi-daemon 
 docker.io docker-compose 
 libsdl2-dev libglew-dev libegl1-mesa-dev 
 borgbackup
 xournalpp libreoffice eekboek gimp blender
-qutebrowser
-sway foot dmenu waybar light swaybg swayidle swayimg swaylock fonts-font-awesome tmux
+qutebrowser firefox
+sway foot wofi waybar light swaybg swayidle swayimg swaylock fonts-font-awesome tmux
 powertop htop
 mutt

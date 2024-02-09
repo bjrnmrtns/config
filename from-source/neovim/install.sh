@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 git clone https://github.com/neovim/neovim.git
 cd neovim/
 git checkout stable
