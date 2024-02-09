@@ -27,3 +27,8 @@
    - rekey secrets with new host-key (restore old host-key private/public)
    - remove old host key private/public
    - get nixos-config and build full system, which now can use secrets
+
+## Todo new laptop
+- fix issue not typing magic keyboard and starting again -> lag
+- add bluetooth info on waybar
+- check if foot needs a bigger font size
