@@ -34,3 +34,6 @@
 + check if foot needs a bigger font size
 - check if shutting down wifi/bluetooth after resume helps connectivity
 - let certain applications start on certain workspaces sway
++ fix waybar time (two times time)
+- remove audio bluetooth from bluetooth part waybar
+- have keys to alter audio and backlight

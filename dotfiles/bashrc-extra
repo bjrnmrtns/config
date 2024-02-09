@@ -1,10 +1,12 @@
+# some defaults
 export PATH=${PATH}:${HOME}/.local/bin
 export PATH=${PATH}:${HOME}/projects/config/dotfiles/bin
 export EDITOR=nvim
 export VISUAL=nvim
 
+# have a list of packages installed and fast way to update
 alias update="xargs sudo apt-get --no-install-recommends -y install < ${HOME}/projects/config/packages.txt"
-alias packages="nvim ${HOME}/projects/config/packages.txt"
+alias packages="${EDITOR} ${HOME}/projects/config/packages.txt"
 
 # git aliases
 alias gg='git status'

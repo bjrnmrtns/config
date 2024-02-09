@@ -7,7 +7,7 @@
     "margin-top": 5,
     "modules-left": ["sway/workspaces"],
     "modules-center": [],
-    "modules-right": ["bluetooth", "network", "temperature", "cpu", "memory", "battery", "clock", "custom/japan"],
+    "modules-right": ["pulseaudio", "bluetooth", "network", "temperature", "backlight", "cpu", "memory", "battery", "clock", "custom/japan"],
     "sway/workspaces": {
         "disable-scroll": true,
         "disable-click": true,
@@ -15,28 +15,24 @@
     "tray": {
         "spacing": 10,
     },
-    "clock": {
-        "format": "{:%a %Y %b %d %R}"
-    },
-    "custom/japan": {
+    "custom/netherlands": {
         "format": "{}",
-        "exec": "TZ=America/Vancouver date \"+%H:%M %Z\"",
-        "interval": 30,
-    },
-    "custom/germany": {
-        "format": "{}",
-        "exec": "TZ=Europe/Berlin date \"+%H:%M %Z\"",
+        "exec": "TZ=Europe/Amsterdam date \"+%H:%M %Z\"",
         "interval": 30,
     },
     "cpu": {
         "format": " {usage}%"
     },
     "memory": {
-        "format": " {}%"
+        "format": " {used} GIB"
     },
     "temperature": {
         "critical-threshold": 75,
         "format": " {temperatureC}°C"
+    },
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "format-icons": ["", ""]
     },
     "battery": {
         "bat": "BAT0",
@@ -63,11 +59,21 @@
         "format-disconnected": "⚠ Disconnected"
     },
     "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "format-muted": "",
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": "  {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
         "format-icons": {
-            "headphones": "",
-            "default": ["", ""]
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
     },
