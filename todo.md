@@ -30,5 +30,7 @@
 
 ## Todo new laptop
 - fix issue not typing magic keyboard and starting again -> lag
-- add bluetooth info on waybar
-- check if foot needs a bigger font size
++ add bluetooth info on waybar
++ check if foot needs a bigger font size
+- check if shutting down wifi/bluetooth after resume helps connectivity
+- let certain applications start on certain workspaces sway
