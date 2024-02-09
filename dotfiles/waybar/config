@@ -7,7 +7,7 @@
     "margin-top": 5,
     "modules-left": ["sway/workspaces"],
     "modules-center": [],
-    "modules-right": ["pulseaudio", "bluetooth", "network", "temperature", "backlight", "cpu", "memory", "battery", "clock", "custom/japan"],
+    "modules-right": ["pulseaudio", "bluetooth", "network", "temperature", "backlight", "cpu", "memory", "battery", "clock"],
     "sway/workspaces": {
         "disable-scroll": true,
         "disable-click": true,
@@ -15,10 +15,12 @@
     "tray": {
         "spacing": 10,
     },
-    "custom/netherlands": {
-        "format": "{}",
-        "exec": "TZ=Europe/Amsterdam date \"+%H:%M %Z\"",
+    "clock": {
+        "timezone": "Europe/Amsterdam",
+        "format": "{:%H:%M}",
+        "format-alt": "{:%Y-%m-%d}",
         "interval": 30,
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     },
     "cpu": {
         "format": " {usage}%"
