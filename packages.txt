@@ -1,5 +1,5 @@
 gettext ninja-build cmake make libtool libtool-bin autoconf automake pkg-config gcc clang clangd python-is-python3
-unzip ssh git stow tree 
+unzip ssh git stow tree fzf 
 curl wget nmap net-tools avahi-daemon 
 docker.io docker-compose 
 libsdl2-dev libglew-dev libegl1-mesa-dev 
