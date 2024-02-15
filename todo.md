@@ -35,12 +35,18 @@
 x check if shutting down wifi/bluetooth after resume helps connectivity
 + let certain applications start on certain workspaces sway
 + fix waybar time (two times time)
-- remove audio bluetooth from bluetooth part waybar
-- have keys to alter audio and backlight
++ remove audio bluetooth from bluetooth part waybar
++ click audio in waybar to alter audio level
+- have keys to alter backlight
 + add idle config sway
 - check when close lid -> idle config sway starts
-- check why todo doesn't open
++ check why todo doesn't open
 - check powersave off bluetooth helps lag keyboard magic apple
 - get all data from other computer (bookkeepingstuff)
 - try adding data to private git repo (bookkeepingstuff)
- 
+- add undo tree to neovim
+- add harpoon to neovim
+- test neovim c++ development
+- test neovim rust development
++ check why todo shortcut is not working
+- find out how to measure power usage when laptop suspended

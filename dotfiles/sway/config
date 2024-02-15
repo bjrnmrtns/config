@@ -140,7 +140,7 @@ exec swayidle -w \
     # We just use 1-10 as the default.
 
     assign [app_id="thunderbird"] workspace number 2
-    assign [app_id="firefox"] workspace number 2
+    for_window [app_id="pavucontrol"] floating enable
 #
 # Layout stuff:
 #
