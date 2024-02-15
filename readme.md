@@ -42,3 +42,12 @@ packages
 Install newest version for some packages from source.
 See this repo ```from-source``` directory.
 
+Install rust:
+```
+curl https://sh.rustup.rs -sSf | sh
+```
+
+## Cleaning
+Rust:
+~/.cargo ~/.rustup
+

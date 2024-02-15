@@ -44,9 +44,10 @@ x check if shutting down wifi/bluetooth after resume helps connectivity
 - check powersave off bluetooth helps lag keyboard magic apple
 - get all data from other computer (bookkeepingstuff)
 - try adding data to private git repo (bookkeepingstuff)
-- add undo tree to neovim
-- add harpoon to neovim
++ add undo tree to neovim
++ add harpoon to neovim
++ add new basic understandable initial neovim setup
 - test neovim c++ development
-- test neovim rust development
++ test neovim rust development
 + check why todo shortcut is not working
 - find out how to measure power usage when laptop suspended

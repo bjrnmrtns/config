@@ -1,4 +1,5 @@
 # some defaults
+. "$HOME/.cargo/env"
 export PATH=${PATH}:${HOME}/.local/bin
 export PATH=${PATH}:${HOME}/.local/python/local/bin
 export PATH=${PATH}:${HOME}/projects/config/dotfiles/bin
