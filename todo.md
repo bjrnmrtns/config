@@ -29,7 +29,6 @@
    - get nixos-config and build full system, which now can use secrets
 
 ## Todo new laptop
-- fix issue not typing magic keyboard and starting again -> lag
 + add bluetooth info on waybar
 + check if foot needs a bigger font size
 x check if shutting down wifi/bluetooth after resume helps connectivity
@@ -37,24 +36,26 @@ x check if shutting down wifi/bluetooth after resume helps connectivity
 + fix waybar time (two times time)
 + remove audio bluetooth from bluetooth part waybar
 + click audio in waybar to alter audio level
-- have keys to alter backlight
 + add idle config sway
-- check when close lid -> idle config sway starts
 + check why todo doesn't open
-- check powersave off bluetooth helps lag keyboard magic apple
-- get all data from other computer (bookkeepingstuff)
-- try adding data to private git repo (bookkeepingstuff)
 + add undo tree to neovim
 + add harpoon to neovim
 + add new basic understandable initial neovim setup
-- test neovim c++ development
 + test neovim rust development
 + check why todo shortcut is not working
+x good rsync backup command including git repos
++ add cppg to github name it xp-cppg
++ rename ffb-controller to xp-ffb-controller
++ rename sensors to xp-sensors
++ check all backup for .git and see if they can go
++ get all data from other computer (bookkeepingstuff)
+- fix issue not typing magic keyboard and starting again -> lag
+- have keys to alter backlight
+- check when close lid -> idle config sway starts
+- check powersave off bluetooth helps lag keyboard magic apple
+- try adding data to private git repo (bookkeepingstuff)
+- test neovim c++ development
 - find out how to measure power usage when laptop suspended
 - check tlp and set battery thresholds
-x good rsync backup command including git repos
-- add cppg to github name it xp-cppg
-- rename ffb-controller to xp-ffb-controller
-- rename sensors to xp-sensors
 - map all P projects
 - make private part in config
