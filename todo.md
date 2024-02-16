@@ -57,3 +57,4 @@ x good rsync backup command including git repos
 - rename ffb-controller to xp-ffb-controller
 - rename sensors to xp-sensors
 - map all P projects
+- make private part in config
