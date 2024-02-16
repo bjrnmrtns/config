@@ -52,3 +52,8 @@ x check if shutting down wifi/bluetooth after resume helps connectivity
 + check why todo shortcut is not working
 - find out how to measure power usage when laptop suspended
 - check tlp and set battery thresholds
+x good rsync backup command including git repos
+- add cppg to github name it xp-cppg
+- rename ffb-controller to xp-ffb-controller
+- rename sensors to xp-sensors
+- map all P projects
