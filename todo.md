@@ -51,3 +51,4 @@ x check if shutting down wifi/bluetooth after resume helps connectivity
 + test neovim rust development
 + check why todo shortcut is not working
 - find out how to measure power usage when laptop suspended
+- check tlp and set battery thresholds

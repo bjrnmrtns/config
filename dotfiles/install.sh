@@ -8,5 +8,6 @@ ln -s $(readlink -f gitconfig) ${HOME}/.gitconfig
 ln -s $(readlink -f foot) ${HOME}/.config/foot
 ln -s $(readlink -f neomutt) ${HOME}/.config/neomutt
 ln -s $(readlink -f tmux) ${HOME}/.config/tmux
+sudo ln -s $(readlink -f tlp.conf) /etc/tlp.conf
 
 

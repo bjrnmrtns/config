@@ -9,3 +9,4 @@ qutebrowser firefox
 sway foot wofi waybar light swaybg swayidle swayimg swaylock fonts-font-awesome tmux pavucontrol xbacklight
 powertop htop
 neomutt
+tlp tlp-rdw
