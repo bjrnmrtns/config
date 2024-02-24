@@ -1,6 +1,6 @@
 gettext ninja-build cmake make libtool libtool-bin autoconf automake pkg-config gcc clang clangd python3 python3-pip python-is-python3
 unzip ssh git stow tree fzf ripgrep 
-curl wget nmap net-tools avahi-daemon 
+curl wget nmap net-tools avahi-daemon avahi-utils 
 docker.io docker-compose 
 libsdl2-dev libglew-dev libegl1-mesa-dev 
 borgbackup

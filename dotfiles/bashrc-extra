@@ -3,6 +3,7 @@
 export PATH=${PATH}:${HOME}/.local/bin
 export PATH=${PATH}:${HOME}/.local/python/local/bin
 export PATH=${PATH}:${HOME}/projects/config/dotfiles/bin
+export PATH=${PATH}:${HOME}/projects/personal/bin
 export PYTHONPATH=${PYTHONPATH}:${HOME}/.local/python/local/lib/python3.11/dist-packages
 export EDITOR=nvim
 export VISUAL=nvim
