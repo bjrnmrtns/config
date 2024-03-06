@@ -141,6 +141,10 @@ exec swayidle -w \
 
     assign [app_id="thunderbird"] workspace number 2
     for_window [app_id="pavucontrol"] floating enable
+    assign [app_id="steam"] workspace number 9
+    for_window [app_id="steam"] floating enable
+    assign [app_id="factorio"] workspace number 9
+    for_window [app_id="factorio"] floating enable
 #
 # Layout stuff:
 #

@@ -10,3 +10,4 @@ sway foot wofi waybar light swaybg swayidle swayimg swaylock fonts-font-awesome 
 powertop htop
 neomutt
 tlp tlp-rdw
+steam
