@@ -2,7 +2,7 @@ gettext ninja-build cmake make libtool libtool-bin autoconf automake pkg-config 
 unzip ssh git stow tree fzf ripgrep 
 curl wget nmap net-tools avahi-daemon avahi-utils 
 docker.io docker-compose 
-libsdl2-dev libglew-dev libegl1-mesa-dev 
+libglfw3-dev libsdl2-dev libglew-dev libegl1-mesa-dev 
 borgbackup
 xournalpp libreoffice eekboek gimp blender
 qutebrowser firefox
