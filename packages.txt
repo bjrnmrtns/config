@@ -1,13 +1,15 @@
 gettext ninja-build cmake make libtool libtool-bin autoconf automake pkg-config gcc clang clangd python3 python3-pip python-is-python3
-unzip ssh git stow tree fzf ripgrep 
+unzip ssh git git-extras stow tree fzf ripgrep 
 curl wget nmap net-tools avahi-daemon avahi-utils 
 docker.io docker-compose 
-libglfw3-dev libsdl2-dev libglew-dev libegl1-mesa-dev 
+libglm-dev libglfw3-dev libsdl2-dev libglew-dev libegl1-mesa-dev 
 borgbackup
 xournalpp libreoffice eekboek gimp blender
+feh
 qutebrowser firefox
 sway foot wofi waybar light swaybg swayidle swayimg swaylock fonts-font-awesome tmux pavucontrol xbacklight
 powertop htop
 neomutt
 tlp tlp-rdw
 steam
+wireguard wireguard-tools qrencode
