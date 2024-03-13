@@ -47,6 +47,13 @@ Install rust:
 curl https://sh.rustup.rs -sSf | sh
 ```
 
+## Hosts
+proxmox -> mcfly
+all round server -> doc
+vpn server -> delorean
+laptop -> jennifer
+desktop linux -> delorean (not good, same name as vpn server)
+
 ## Cleaning
 Rust:
 ~/.cargo ~/.rustup
