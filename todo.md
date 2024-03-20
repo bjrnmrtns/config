@@ -1,0 +1,4 @@
+- [neovim] disable tab for moving through lsp selection, enable ctrl-p cntrl-n
+- [neovim] enable virtual text type annotations
+- [neovim] enable key for code actions
+- [neovim] enable code formatting on certain binding
