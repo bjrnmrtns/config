@@ -13,13 +13,12 @@ alias update="xargs sudo apt-get --no-install-recommends -y install < ${HOME}/pr
 alias packages="${EDITOR} ${HOME}/projects/config/packages.txt"
 alias update-python="xargs python -m pip install --prefix=${HOME}/.local/python < ${HOME}/projects/config/packages-python.txt"
 alias packages-python="${EDITOR} ${HOME}/projects/config/packages-python.txt"
-alias i2d="invoice2data --exclude-built-in-templates --template-folder ${HOME}/projects/personal/Documents/expeditious/Invoices/invoice2data-templates $1"
+#alias i2dc="invoice2data --exclude-built-in-templates --template-folder ${HOME}/projects/personal/Documents/expeditious/Invoices/invoice2data-templates --filename-format "{invoice_number}_{date}_{issuer}_{amount}.pdf" --move processed $1"
 
 # git aliases
 alias gg='git status'
 
 # eekboek shortcuts
 alias ebi='ebshell --init'
-alias ebjaareinde='ebshell --command jaareinde --boekjaar=2023'
-alias ebjaareinde2021='ebshell --command jaareinde --boekjaar=2021'
+alias ebjaareinde='ebshell --command jaareinde --boekjaar=2024'
 alias ebbalans='ebshell --command balans'
