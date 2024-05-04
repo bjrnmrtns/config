@@ -1,11 +1,12 @@
 # Installation of Ubuntu
 
 ## Directories in this repo
-- ./ is a nix repo with a flake.nix
+- ./nix is a nix repo with a flake.nix
 - ./dotfiles contains the dotfiles
 - ./docker contains docker configurations for certain applications
 - ./from-source contains applications which I built from source
 - ./packages.txt contains all the packages needed to be installed on an ubuntu system
+- ./wireguard contains wireguard setup on delorean 
 
 ## Download the latest Ubuntu iso and create usb for installing on pc
 Create usb stick with iso
