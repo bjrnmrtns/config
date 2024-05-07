@@ -13,3 +13,4 @@ neomutt
 tlp tlp-rdw
 steam
 wireguard wireguard-tools qrencode
+gcc-arm-none-eabi libusb-1.0.0-dev
