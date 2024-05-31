@@ -147,6 +147,7 @@ exec swayidle -w \
     for_window [app_id="factorio"] floating enable
     
     for_window [class="feh"] floating enable
+    for_window [class="qrenderdoc"] floating enable
 
     # under dev application
     for_window [class="microvoxel"] floating enable
