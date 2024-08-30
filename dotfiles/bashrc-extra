@@ -13,7 +13,7 @@ alias update="xargs sudo apt-get --no-install-recommends -y install < ${HOME}/pr
 alias packages="${EDITOR} ${HOME}/projects/config/packages.txt"
 alias update-python="xargs python -m pip install --prefix=${HOME}/.local/python < ${HOME}/projects/config/packages-python.txt"
 alias packages-python="${EDITOR} ${HOME}/projects/config/packages-python.txt"
-#alias i2dc="invoice2data --exclude-built-in-templates --template-folder ${HOME}/projects/personal/Documents/expeditious/Invoices/invoice2data-templates --filename-format "{invoice_number}_{date}_{issuer}_{amount}.pdf" --move processed $1"
+alias i2dc="invoice2data --exclude-built-in-templates --template-folder ${HOME}/projects/personal/Documents/expeditious/Invoices/invoice2data-templates --filename-format "{invoice_number}_{date}_{issuer}_{amount}.pdf" --move processed $1"
 
 # git aliases
 alias gg='git status'

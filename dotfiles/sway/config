@@ -151,6 +151,7 @@ exec swayidle -w \
 
     # under dev application
     for_window [class="microvoxel"] floating enable
+    for_window [class="vulkan-tutorial"] floating enable
 #
 # Layout stuff:
 #

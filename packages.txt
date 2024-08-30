@@ -7,10 +7,14 @@ borgbackup
 xournalpp libreoffice eekboek gimp blender
 feh
 qutebrowser firefox chromium-browser
-sway foot wofi waybar light swaybg swayidle swayimg swaylock fonts-font-awesome tmux pavucontrol xbacklight
+thunar
+sway foot wofi waybar light swaybg swayidle swayimg swaylock fonts-font-awesome tmux pavucontrol xbacklight 
 powertop htop
 neomutt
 tlp tlp-rdw
 steam
 wireguard wireguard-tools qrencode
 gcc-arm-none-eabi libusb-1.0.0-dev
+fuse
+vulkan-tools libvulkan-dev vulkan-validationlayers-dev
+libfontconfig-dev
