@@ -1,6 +1,8 @@
 local lsp = require("lsp-zero")
 
 lsp.on_attach(function(client, bufnr)
+  -- needed for inlay-hints
+  require("inlay-hints").on_attach(client, bufnr)
   -- see :help lsp-zero-keybindings
   -- to learn the available actions
   lsp.default_keymaps({buffer = bufnr})
@@ -16,10 +18,23 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
-require("mason").setup({})
-require("mason-lspconfig").setup({
-  ensure_installed = { "lua_ls", "clangd", "rust_analyzer" },
-  handlers = {
-    lsp.default_setup,
+vim.g.rustaceanvim = {
+  server = {
+    capabilities = lsp.get_capabilities()
   },
+}
+
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  handlers = {
+    -- this first function is the "default handler"
+    -- it applies to every language server without a "custom handler"
+    function(server_name)
+      require('lspconfig')[server_name].setup({})
+    end,
+
+    -- this is the "custom handler" for `rust_analyzer`
+    -- noop is an empty function that doesn't do anything
+    rust_analyzer = lsp.noop,
+  }
 })
