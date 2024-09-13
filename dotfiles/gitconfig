@@ -1,3 +1,5 @@
 [user]
 	email = bjorn@expeditious.nl
 	name = Bjorn Martens
+[push]
+	autoSetupRemote = true
