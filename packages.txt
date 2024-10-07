@@ -4,7 +4,9 @@ curl wget nmap net-tools avahi-daemon avahi-utils
 docker.io docker-compose 
 libglm-dev libglfw3-dev libsdl2-dev libglew-dev libegl1-mesa-dev 
 borgbackup
-xournalpp libreoffice eekboek gimp blender
+openscad
+xournalpp libreoffice eekboek gimp blender grim
+libssl-dev
 feh
 qutebrowser firefox chromium-browser
 thunar
@@ -18,3 +20,6 @@ gcc-arm-none-eabi libusb-1.0.0-dev
 fuse
 vulkan-tools libvulkan-dev vulkan-validationlayers-dev
 libfontconfig-dev
+udevil
+nix pwgen whois
+joystick
