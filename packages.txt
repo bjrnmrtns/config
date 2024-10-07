@@ -1,4 +1,4 @@
-gettext ninja-build cmake make makepkg libtool libtool-bin autoconf automake pkg-config gcc clang clangd python3 python3-pip python-is-python3 python3-venv python3-dev
+gettext ninja-build cmake make makepkg libtool libtool-bin autoconf automake pkg-config gcc clang clangd python3 python3-pip python-is-python3 python3-venv python3-dev golang
 unzip ssh git git-extras stow tree fzf ripgrep 
 curl wget nmap net-tools avahi-daemon avahi-utils 
 docker.io docker-compose 
