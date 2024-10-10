@@ -43,15 +43,12 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.bjorn = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       tree
     ];
     # Created using mkpasswd
     hashedPassword = "$y$j9T$1dyXKDTyGzdkserNs/vsh.$IYMLLznhPPNd3ynLoSXjlh/Uy.slR/U.8fnzMVcoLz3";
-    openssh.authorizedKeys.keys = [
-       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ2tDcV2sn727sECRWMImclZBmlYpYYAmQSTC9JrhnI6 bjorn@jennifer"
-    ];
   };
 
   # List packages installed in system profile. To search, run:
