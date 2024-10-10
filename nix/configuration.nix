@@ -2,13 +2,9 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, meta, ... }:
+{ config, lib, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-    ];
-
   nix = {
     package = pkgs.nixFlakes;
     extraOptions = ''
@@ -20,7 +16,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = meta.hostname; # Define your hostname.
+  networking.hostName = "jennifer";
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
@@ -50,13 +46,33 @@
     # Created using mkpasswd
     hashedPassword = "$y$j9T$1dyXKDTyGzdkserNs/vsh.$IYMLLznhPPNd3ynLoSXjlh/Uy.slR/U.8fnzMVcoLz3";
   };
+  
+  home-manager.users.bjorn = { pkgs, ... }: {
+    home.packages = [ pkgs.firefox pkgs.bitwarden ];
+
+    programs.git = {
+      enable = true;
+      userEmail = "borjn@proton.me";
+      userName = "Bjorn Martens";
+    };
+
+    home.stateVersion = "24.05";
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
      neovim
-     git
+     tmux
+     gnumake
+     perl
+     zip
   ];
+
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
