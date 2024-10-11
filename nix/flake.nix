@@ -18,6 +18,7 @@
       jennifer = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+	  ./hardware-configuration.nix
           disko.nixosModules.disko
           ./disko-config.nix
           ./configuration.nix
