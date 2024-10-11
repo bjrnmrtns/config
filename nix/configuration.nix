@@ -1,7 +1,3 @@
-#Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
 { config, lib, pkgs, ... }:
 
 {
@@ -42,10 +38,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.bjorn = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "docker" ];
-    packages = with pkgs; [
-      tree
-    ];
+    extraGroups = [ "wheel" "networkmanager" "audio" "docker" ];
     # Created using mkpasswd
     hashedPassword = "$y$j9T$1dyXKDTyGzdkserNs/vsh.$IYMLLznhPPNd3ynLoSXjlh/Uy.slR/U.8fnzMVcoLz3";
   };
@@ -55,13 +48,9 @@
     wrapperFeatures.gtk = true;
   };
 
-
-  home-manager.users.bjorn = { config, pkgs, ... }: {
+  home-manager.users.bjorn = { pkgs, ... }: {
 
     programs.tmux = {
-      enable = true;
-    };
-    programs.bash = {
       enable = true;
     };
 
@@ -77,20 +66,215 @@
 
     programs.neovim = {
       enable = true;
-      viAlias = true;
       defaultEditor = true;
+      viAlias = true;
       plugins = with pkgs.vimPlugins; [
         nvim-lspconfig
         plenary-nvim
       ];
     };
+
+    accounts.email.accounts = {
+      work = {
+	primary = true;
+        aerc.enable = true;
+	realName = "Bjorn Martens";
+	address = "bjorn@expeditious.nl";
+	imap.host = "imap.transip.email";
+	smtp.host = "smtp.transip.email";
+	userName = "bjorn@expeditious.nl";
+#	passwordCommand = "pass aerc/bjorn@expeditious.nl";
+	passwordCommand = "cat ./secret.email";
+      };
+    };
+
+    programs.ripgrep = {
+      enable = true;
+    };
+
+    programs.aerc = {
+      enable = true;
+      extraBinds = {
+        global = {
+          "<C-p>" = ":prev-tab<Enter>";
+          "<C-n>" = ":next-tab<Enter>";
+          "?" = ":help keys<Enter>";
+        };
+
+        messages = {
+          "h" = ":prev-tab<Enter>";
+          "l" = ":next-tab<Enter>";
+
+          "j" = ":next<Enter>";
+          "<Down>" = ":next<Enter>";
+          "<C-d>" = ":next 50%<Enter>";
+          "<C-f>" = ":next 100%<Enter>";
+          "<PgDn>" = ":next 100%<Enter>";
+
+          "k" = ":prev<Enter>";
+          "<Up>" = ":prev<Enter>";
+          "<C-u>" = ":prev 50%<Enter>";
+          "<C-b>" = ":prev 100%<Enter>";
+          "<PgUp>" = ":prev 100%<Enter>";
+          "g" = ":select 0<Enter>";
+          "G" = ":select -1<Enter>";
+
+          "J" = ":next-folder<Enter>";
+          "K" = ":prev-folder<Enter>";
+          "H" = ":collapse-folder<Enter>";
+          "L" = ":expand-folder<Enter>";
+
+          "v" = ":mark -t<Enter>";
+          "x" = ":mark -t<Enter>:next<Enter>";
+          "V" = ":mark -v<Enter>";
+
+          "T" = ":toggle-threads<Enter>";
+
+          "<Enter>" = ":view<Enter>";
+          "d" = ":prompt 'Really delete this message?' 'delete-message'<Enter>";
+          "D" = ":delete<Enter>";
+          "A" = ":archive flat<Enter>";
+
+          "C" = ":compose<Enter>";
+
+          "rr" = ":reply -a<Enter>";
+          "rq" = ":reply -aq<Enter>";
+          "Rr" = ":reply<Enter>";
+          "Rq" = ":reply -q<Enter>";
+
+          "c" = ":cf<space>";
+          "$" = ":term<space>";
+          "!" = ":term<space>";
+          "|" = ":pipe<space>";
+
+          "/" = ":search<space>";
+          "\\" = ":filter<space>";
+          "n" = ":next-result<Enter>";
+          "N" = ":prev-result<Enter>";
+          "<Esc>" = ":clear<Enter>";
+        };
+
+        "messages:folder=Drafts" = { "<Enter>" = ":recall<Enter>"; };
+
+        view = {
+
+          "/" = ":toggle-key-passthrough<Enter>/";
+          "q" = ":close<Enter>";
+          "O" = ":open<Enter>";
+          "S" = ":save<space>";
+          "|" = ":pipe<space>";
+          "D" = ":delete<Enter>";
+          "A" = ":archive flat<Enter>";
+
+          "<C-l>" = ":open-link <space>";
+
+          "f" = ":forward<Enter>";
+          "rr" = ":reply -a<Enter>";
+          "rq" = ":reply -aq<Enter>";
+          "Rr" = ":reply<Enter>";
+          "Rq" = ":reply -q<Enter>";
+
+          "H" = ":toggle-headers<Enter>";
+          "<C-k>" = ":prev-part<Enter>";
+          "<C-j>" = ":next-part<Enter>";
+          "J" = ":next<Enter>";
+          "K" = ":prev<Enter>";
+        };
+
+        "view::passthrough" = {
+          "$noinherit" = true;
+          "$ex" = "<C-x>";
+          "<Esc>" = ":toggle-key-passthrough<Enter>";
+        };
+
+        compose = {
+          "$noinherit" = "true";
+          "$ex" = "<C-x>";
+          "<C-k>" = ":prev-field<Enter>";
+          "<C-j>" = ":next-field<Enter>";
+          "<A-p>" = ":switch-account -p<Enter>";
+          "<A-n>" = ":switch-account -n<Enter>";
+          "<tab>" = ":next-field<Enter>";
+          "<C-p>" = ":prev-tab<Enter>";
+          "<C-n>" = ":next-tab<Enter>";
+        };
+
+        "compose::editor" = {
+          "$noinherit" = "true";
+          "$ex" = "<C-x>";
+          "<C-k>" = ":prev-field<Enter>";
+          "<C-j>" = ":next-field<Enter>";
+          "<C-p>" = ":prev-tab<Enter>";
+          "<C-n>" = ":next-tab<Enter>";
+        };
+
+        "compose::review" = {
+          "y" = ":send<Enter>";
+          "n" = ":abort<Enter>";
+          "p" = ":postpone<Enter>";
+          "q" = ":choose -o d discard abort -o p postpone postpone<Enter>";
+          "e" = ":edit<Enter>";
+          "a" = ":attach<space>";
+          "d" = ":detach<space>";
+        };
+
+        terminal = {
+          "$noinherit" = "true";
+          "$ex" = "<C-x>";
+
+          "<C-p>" = ":prev-tab<Enter>";
+          "<C-n>" = ":next-tab<Enter>";
+        };
+      };
+      extraConfig = {
+        general.unsafe-accounts-conf = true;
+        ui = {
+          this-day-time-format = ''"           15:04"'';
+          this-year-time-format = "Mon Jan 02 15:04";
+          timestamp-format = "2006-01-02 15:04";
+
+          spinner = "[ ⡿ ],[ ⣟ ],[ ⣯ ],[ ⣷ ],[ ⣾ ],[ ⣽ ],[ ⣻ ],[ ⢿ ]";
+          border-char-vertical = "┃";
+          border-char-horizontal = "━";
+        };
+        viewer = { always-show-mime = true; };
+        compose = { no-attachment-warning = "^[^>]*attach(ed|ment)"; };
+        triggers = {
+          email-received = ''exec notify-send "New email from %n" "%s"'';
+        };
+        filters = {
+          "text/plain" = "colorize";
+          "text/html" = "html";
+          "text/calendar" = "calendar";
+          "message/delivery-status" = "colorize";
+          "message/rfc822" = "colorize";
+          "image/*" = "${pkgs.catimg}/bin/catimg -";
+        };
+      };
+      stylesets = {
+        default = {
+          "border.bg" = 0;
+          "border.fg" = 7;
+          "msglist_default.bg" = 0;
+          "msglist_unread.fg" = 3;
+          "msglist_unread.bold" = "true";
+          "msglist_marked.bg" = 4;
+          "dirlist_default.bg" = 0;
+          "dirlist_unread.fg" = 3;
+          "*.selected.reverse" = "toggle";
+        };
+      };
+    };
+
     home.stateVersion = "24.05";
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    nixos-option
     gnumake
+    pass
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
