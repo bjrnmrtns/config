@@ -49,9 +49,25 @@
     # Created using mkpasswd
     hashedPassword = "$y$j9T$1dyXKDTyGzdkserNs/vsh.$IYMLLznhPPNd3ynLoSXjlh/Uy.slR/U.8fnzMVcoLz3";
   };
-  
-  home-manager.users.bjorn = { pkgs, ... }: {
-    home.packages = [ pkgs.firefox pkgs.bitwarden ];
+
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
+
+
+  home-manager.users.bjorn = { config, pkgs, ... }: {
+
+    programs.tmux = {
+      enable = true;
+    };
+    programs.bash = {
+      enable = true;
+    };
+
+    programs.firefox = {
+      enable = true;
+    };
 
     programs.git = {
       enable = true;
@@ -59,23 +75,23 @@
       userName = "Bjorn Martens";
     };
 
+    programs.neovim = {
+      enable = true;
+      viAlias = true;
+      defaultEditor = true;
+      plugins = with pkgs.vimPlugins; [
+        nvim-lspconfig
+        plenary-nvim
+      ];
+    };
     home.stateVersion = "24.05";
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     neovim
-     tmux
-     gnumake
-     perl
-     zip
+    gnumake
   ];
-
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
