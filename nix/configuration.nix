@@ -24,6 +24,9 @@
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
 
+  # Docker
+  virtualisation.docker.enable = true;
+
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -39,7 +42,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.bjorn = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" "docker" ];
     packages = with pkgs; [
       tree
     ];
