@@ -1,5 +1,4 @@
 { config, lib, pkgs, ... }:
-
 {
   nix = {
     package = pkgs.nixFlakes;
@@ -48,13 +47,25 @@
     wrapperFeatures.gtk = true;
   };
 
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
+
   home-manager.users.bjorn = { pkgs, ... }: {
+
+    home.packages = with pkgs; [
+    ];
 
     programs.tmux = {
       enable = true;
     };
 
     programs.firefox = {
+      enable = true;
+    };
+
+    programs.gpg = {
       enable = true;
     };
 
@@ -83,8 +94,7 @@
 	imap.host = "imap.transip.email";
 	smtp.host = "smtp.transip.email";
 	userName = "bjorn@expeditious.nl";
-#	passwordCommand = "pass aerc/bjorn@expeditious.nl";
-	passwordCommand = "cat ./secret.email";
+	passwordCommand = "pass mail/bjorn@expeditious.nl";
       };
     };
 
@@ -275,6 +285,7 @@
     nixos-option
     gnumake
     pass
+    pinentry-curses
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

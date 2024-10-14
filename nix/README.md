@@ -8,18 +8,21 @@
 1. Where to search options
 ```https://home-manager-options.extranix.com/?query=aerc&release=master```
 
-# Setup pass and gpg for aerc
-```sh
-gpg --full-generate-key
-pass init "borjn@proton.me"
-gpg --edit-key {key}
-trust
-save
-pass insert aerc/bjorn@expeditious.nl"
-```
-
 # NixOS debugging
 1. If `home-manager-{user}` service fails to start then run
 ```sh
 journalctl --unit home-manager-{user}.service
 ```
+
+# pgp / pass key handling
+1. Generete new gpg key
+```gpg --full-generet-key```
+2. Init pass with sub key id 
+```pass git init {key-id}```
+3. Add a key to pass for example mail/borjn@proton.me
+```pass git insert mail/borjn@proton.me```
+4. Show the key
+```pass mail/borjn@proton.me```
+4. Push pass keys to remote repo
+```pass git push```
+
