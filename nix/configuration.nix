@@ -286,6 +286,8 @@
     gnumake
     pass
     pinentry-curses
+    qrencode
+    feh
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -26,15 +26,13 @@ journalctl --unit home-manager-{user}.service
 4. Push pass keys to remote repo
 ```pass git push```
 
-# gpg change passphrase
+# gpg key handling
 1. Check key-id list secret keys
 ```gpg --list-secret-keys```
 2. Actual change passphrase
 ```gpg --edit-key {key-id}```
 ```passwd```
-
-# Export keys to paper
-1. Backup private key
+3. Backup private key (this includes subkeys and public keys)
 ```gpg --export-secret-keys --armor {key-id} > private-key-backup.asc```
-2. Backup public key
-```gpg --export --armor {key-id} > public-key-backup.asc```
+4. Restore  private keys using backup
+```gpg --import private-key-backup.asc```
