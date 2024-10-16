@@ -14,7 +14,7 @@
 journalctl --unit home-manager-{user}.service
 ```
 
-# pgp / pass key handling
+# gpg / pass key handling
 1. Generete new gpg key
 ```gpg --full-generet-key```
 2. Init pass with sub key id 
@@ -26,3 +26,15 @@ journalctl --unit home-manager-{user}.service
 4. Push pass keys to remote repo
 ```pass git push```
 
+# gpg change passphrase
+1. Check key-id list secret keys
+```gpg --list-secret-keys```
+2. Actual change passphrase
+```gpg --edit-key {key-id}```
+```passwd```
+
+# Export keys to paper
+1. Backup private key
+```gpg --export-secret-keys --armor {key-id} > private-key-backup.asc```
+2. Backup public key
+```gpg --export --armor {key-id} > public-key-backup.asc```
