@@ -55,6 +55,35 @@
   home-manager.users.bjorn = { pkgs, ... }: {
 
     home.packages = with pkgs; [
+        (pkgs.writeShellScriptBin "tmux-sessionizer" ''
+            #!/usr/bin/env bash
+
+            # tmux-sessionizer thanks to ThePrimeagen            
+
+            if [[ $# -eq 1 ]]; then
+                selected=$1
+            else
+                selected=$(find ~/projects ~/projects-np -mindepth 1 -maxdepth 1 -type d -not -path '*/.*' | fzf)
+            fi
+            
+            if [[ -z $selected ]]; then
+                exit 0
+            fi
+            
+            selected_name=$(basename "$selected" | tr . _)
+            tmux_running=$(pgrep tmux)
+            
+            if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+                tmux new-session -s $selected_name -c $selected
+                exit 0
+            fi
+            
+            if ! tmux has-session -t=$selected_name 2> /dev/null; then
+                tmux new-session -ds $selected_name -c $selected
+            fi
+            
+            tmux switch-client -t $selected_name
+	'')
     ];
 
     programs.firefox = {
@@ -130,11 +159,11 @@
             bind -r h select-pane -L
             bind -r l select-pane -R
             
-            bind -r J neww -c "#{pane_current_path}" "[[ -e todo.md ]] && nvim todo.md || ~/.local/bin/nvim ~/projects/personal/todo.md"
-            bind -r P neww -c "#{pane_current_path}" "~/.local/bin/nvim ~/projects/personal/projects.md"
+            bind -r J neww -c "#{pane_current_path}" "[[ -e todo.md ]] && nvim todo.md || nvim ~/projects/personal/todo.md"
+            bind -r P neww -c "#{pane_current_path}" "nvim ~/projects/personal/projects.md"
             
             # forget the find window.  That is for chumps
-            bind-key -r f run-shell "tmux neww ~/projects/config/dotfiles/bin/tmux-sessionizer"
+            bind-key -r f run-shell "tmux neww tmux-sessionizer"
 	'';
     };
 
@@ -328,6 +357,7 @@
     # grim and slurp are for screenshots
     grim
     slurp
+    fzf
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
