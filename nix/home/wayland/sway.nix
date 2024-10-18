@@ -95,6 +95,9 @@ in {
                   natural_scroll = "enabled";
                   middle_emulation = "enabled";
                 };
+		"type:keyboard" = {
+		  xkb_options = "ctrl:nocaps";
+		};
               };
               workspaceOutputAssign = let
                 first = "eDP-1 VGA-1";
