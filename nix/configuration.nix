@@ -7,6 +7,10 @@
     '';
   };
 
+  imports = [
+      ./home
+  ];
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -52,8 +56,7 @@
     enableSSHSupport = true;
   };
 
-  home-manager.users.bjorn = { pkgs, ... }: {
-
+  home-manager.users.bjorn = { lib, pkgs, ... }: {
     home.packages = with pkgs; [
         (pkgs.writeShellScriptBin "tmux-sessionizer" ''
             #!/usr/bin/env bash
@@ -468,6 +471,7 @@
     grim
     slurp
     fzf
+    light # for setting brightness
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
