@@ -99,6 +99,10 @@
         };
     };
 
+    programs.qutebrowser = {
+      enable = true;
+    };
+
     programs.firefox = {
       enable = true;
     };
