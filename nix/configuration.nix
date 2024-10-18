@@ -86,6 +86,16 @@
 	'')
     ];
 
+    programs.foot = {
+        enable = true;
+        settings = {
+	   main = {
+	       shell = "tmux";
+	       font = "monospace:size=10";
+	   };
+        };
+    };
+
     programs.firefox = {
       enable = true;
     };
