@@ -57,10 +57,6 @@
     home.packages = with pkgs; [
     ];
 
-    programs.tmux = {
-      enable = true;
-    };
-
     programs.firefox = {
       enable = true;
     };
@@ -100,6 +96,46 @@
 
     programs.ripgrep = {
       enable = true;
+    };
+
+    programs.tmux = {
+        enable = true;
+	extraConfig =
+	''
+            set -ga terminal-overrides ",screen-256color*:Tc"
+            set-option -g default-terminal "screen-256color"
+            set -s escape-time 0
+            
+            unbind C-b
+            set-option -g prefix C-a
+            bind-key C-a send-prefix
+            set -g status-style 'bg=#333333 fg=#5eacd3'
+            
+            bind r source-file ~/.config/tmux/tmux.conf
+            set -g base-index 1
+            set -g history-limit 10000
+            
+            set-window-option -g mode-keys vi
+            bind -T copy-mode-vi v send-keys -X begin-selection
+            bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'xclip -in -selection clipboard'
+            
+            # split pane rebinding
+            bind \\ split-window -h
+            bind - split-window -v
+            
+            # vim-like pane switching
+            bind -r ^ last-window
+            bind -r k select-pane -U
+            bind -r j select-pane -D
+            bind -r h select-pane -L
+            bind -r l select-pane -R
+            
+            bind -r J neww -c "#{pane_current_path}" "[[ -e todo.md ]] && nvim todo.md || ~/.local/bin/nvim ~/projects/personal/todo.md"
+            bind -r P neww -c "#{pane_current_path}" "~/.local/bin/nvim ~/projects/personal/projects.md"
+            
+            # forget the find window.  That is for chumps
+            bind-key -r f run-shell "tmux neww ~/projects/config/dotfiles/bin/tmux-sessionizer"
+	'';
     };
 
     programs.aerc = {
