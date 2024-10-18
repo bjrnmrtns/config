@@ -282,13 +282,16 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    nixos-option
+    nixos-option # checking options for certain nix options
     gnumake
     pass
-    pinentry-curses
+    pinentry-curses # being able to enter a passphrase for gpg in the terminal
     qrencode
-    feh
-    evince
+    feh # image file reader
+    evince # evince is for pdf reading
+    # grim and slurp are for screenshots
+    grim
+    slurp
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
