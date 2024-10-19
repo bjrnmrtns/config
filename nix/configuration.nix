@@ -46,6 +46,11 @@
     hashedPassword = "$y$j9T$1dyXKDTyGzdkserNs/vsh.$IYMLLznhPPNd3ynLoSXjlh/Uy.slR/U.8fnzMVcoLz3";
   };
 
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
+
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
@@ -476,6 +481,7 @@
     slurp
     fzf
     light # for setting brightness
+    openscad # modelling
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
