@@ -153,10 +153,10 @@ in {
               assigns = {
                 "1" = [ # terminal
                   { app_id = "foot"; }
-                ];
-                "2" = [ # browser
                   { app_id = ".*qutebrowser"; }
                   { app_id = "firefox"; }
+                ];
+                "2" = [ # browser
                 ];
                 "3" = [ # entertainment
                   { app_id = ".*telegram.*"; }
